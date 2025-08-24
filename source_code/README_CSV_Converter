@@ -1,0 +1,142 @@
+# CSV to JSON Converter for Student Dropout Prediction
+
+This repository contains Python scripts to convert your CSV data to JSON format and understand what input fields your dropout prediction model needs.
+
+## Files Created
+
+1. **`csv_to_json_converter.py`** - Comprehensive converter that processes all CSV files
+2. **`check_model_input.py`** - Simple script focused on showing model requirements
+3. **`README_CSV_Converter.md`** - This documentation file
+
+## Quick Start
+
+### Option 1: Simple Model Requirements Check
+```bash
+python check_model_input.py
+```
+This will:
+- Show exactly what features your model expects
+- Display sample data in the correct format
+- Save a sample JSON file (`model_input_sample.json`)
+
+### Option 2: Full CSV Conversion
+```bash
+python csv_to_json_converter.py
+```
+This will:
+- Process all CSV files in the directory
+- Create converted JSON files
+- Generate template files for each dataset
+- Show detailed information about each dataset
+
+## What Your Model Expects
+
+Based on your `dropout_api.py`, your model expects data from the **Vietnamese dataset** (`student_data_VN.csv`) with these features:
+
+### Required Input Features (14 features):
+1. **Gender** - 0=Female, 1=Male
+2. **Curricular units 1st sem (enrolled)** - Number of courses enrolled in 1st semester
+3. **Curricular units 1st sem (approved)** - Number of courses passed in 1st semester
+4. **Curricular units 1st sem (grade)** - Average grade in 1st semester
+5. **Curricular units 2nd sem (enrolled)** - Number of courses enrolled in 2nd semester
+6. **Curricular units 2nd sem (approved)** - Number of courses passed in 2nd semester
+7. **Curricular units 2nd sem (grade)** - Average grade in 2nd semester
+8. **Debtor** - 0=No debt, 1=Has debt
+9. **Tuition fees up to date** - 0=Not up to date, 1=Up to date
+10. **total_enrolled** - Total courses enrolled across both semesters
+11. **total_approved** - Total courses passed across both semesters
+12. **total_failed** - Total courses failed across both semesters
+13. **average_grade** - Overall average grade
+14. **unpassed_courses** - Total number of failed courses
+
+### Excluded Features:
+- `student_id` - Not used by the model
+- `Target` - This is the output (what you're predicting)
+
+## API Input Format
+
+Your API expects data in this JSON format:
+
+```json
+{
+  "data": [
+    {
+      "Gender": 0,
+      "Curricular units 1st sem (enrolled)": 6,
+      "Curricular units 1st sem (approved)": 5,
+      "Curricular units 1st sem (grade)": 6.2,
+      "Curricular units 2nd sem (enrolled)": 6,
+      "Curricular units 2nd sem (approved)": 5,
+      "Curricular units 2nd sem (grade)": 5.2,
+      "Debtor": 0,
+      "Tuition fees up to date": 1,
+      "total_enrolled": 12,
+      "total_approved": 10,
+      "total_failed": 2,
+      "average_grade": 5.7,
+      "unpassed_courses": 2
+    }
+  ]
+}
+```
+
+## Important Notes
+
+### Vietnamese Dataset ✅
+- **Use directly** with your current model
+- Has exactly the features your model expects
+- Generated JSON can be sent directly to your `/predict` endpoint
+
+### Portuguese Dataset ⚠️
+- **Cannot use directly** with your current model
+- Has 37 different features
+- Would require feature mapping/transformation to work with your Vietnamese model
+
+## Usage Examples
+
+### 1. Check Model Requirements
+```bash
+python check_model_input.py
+```
+
+### 2. Convert All CSV Files
+```bash
+python csv_to_json_converter.py
+```
+
+### 3. Use Generated JSON with Your API
+```python
+import requests
+
+# Load the generated sample data
+with open('model_input_sample.json', 'r') as f:
+    data = json.load(f)
+
+# Send to your API
+response = requests.post('http://localhost:8000/predict', json=data)
+predictions = response.json()
+print(predictions)
+```
+
+## Output Files
+
+After running the scripts, you'll get:
+
+- **`student_data_VN_converted.json`** - Full dataset converted to JSON
+- **`student_data_VN_template.json`** - Template showing required format
+- **`model_input_sample.json`** - Sample data ready for API testing
+- **`student_dropout_dataset_Portugal_converted.json`** - Portuguese dataset (for reference)
+- **`student_dropout_dataset_Portugal_template.json`** - Portuguese dataset template
+
+## Troubleshooting
+
+- **Missing CSV files**: Make sure your CSV files are in the same directory as the scripts
+- **Encoding issues**: The scripts handle UTF-8 encoding automatically
+- **Memory issues**: For very large CSV files, the scripts process data in chunks
+
+## Next Steps
+
+1. Run `check_model_input.py` to see exactly what your model needs
+2. Use the generated `model_input_sample.json` to test your API
+3. Modify the scripts if you need to process different CSV formats
+4. Consider feature mapping if you want to use the Portuguese dataset
