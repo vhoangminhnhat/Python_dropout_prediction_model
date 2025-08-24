@@ -1,4 +1,3 @@
-# Python_dropout_prediction_model
 # CSV to JSON Converter for Student Dropout Prediction
 
 This repository contains Python scripts to convert your CSV data to JSON format and understand what input fields your dropout prediction model needs.
