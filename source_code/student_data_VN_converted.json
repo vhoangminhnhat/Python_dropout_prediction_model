@@ -1,0 +1,145 @@
+{
+  "dataset_info": {
+    "file_path": "student_data_VN.csv",
+    "dataset_type": "Vietnamese",
+    "total_records": 899,
+    "total_features": 14,
+    "required_features": [
+      "Gender",
+      "Curricular units 1st sem (enrolled)",
+      "Curricular units 1st sem (approved)",
+      "Curricular units 1st sem (grade)",
+      "Curricular units 2nd sem (enrolled)",
+      "Curricular units 2nd sem (approved)",
+      "Curricular units 2nd sem (grade)",
+      "Debtor",
+      "Tuition fees up to date",
+      "total_enrolled",
+      "total_approved",
+      "total_failed",
+      "average_grade",
+      "unpassed_courses"
+    ]
+  },
+  "sample_data": [
+    {
+      "Gender": 0,
+      "Curricular units 1st sem (enrolled)": 6,
+      "Curricular units 1st sem (approved)": 5,
+      "Curricular units 1st sem (grade)": 6.2,
+      "Curricular units 2nd sem (enrolled)": 6,
+      "Curricular units 2nd sem (approved)": 5,
+      "Curricular units 2nd sem (grade)": 5.2,
+      "Debtor": 0,
+      "Tuition fees up to date": 1,
+      "total_enrolled": 12,
+      "total_approved": 10,
+      "total_failed": 2,
+      "average_grade": 5.7,
+      "unpassed_courses": 2
+    },
+    {
+      "Gender": 1,
+      "Curricular units 1st sem (enrolled)": 6,
+      "Curricular units 1st sem (approved)": 5,
+      "Curricular units 1st sem (grade)": 6.25,
+      "Curricular units 2nd sem (enrolled)": 6,
+      "Curricular units 2nd sem (approved)": 2,
+      "Curricular units 2nd sem (grade)": 6.75,
+      "Debtor": 1,
+      "Tuition fees up to date": 0,
+      "total_enrolled": 12,
+      "total_approved": 7,
+      "total_failed": 5,
+      "average_grade": 6.5,
+      "unpassed_courses": 5
+    },
+    {
+      "Gender": 1,
+      "Curricular units 1st sem (enrolled)": 6,
+      "Curricular units 1st sem (approved)": 0,
+      "Curricular units 1st sem (grade)": 0.0,
+      "Curricular units 2nd sem (enrolled)": 6,
+      "Curricular units 2nd sem (approved)": 0,
+      "Curricular units 2nd sem (grade)": 0.0,
+      "Debtor": 0,
+      "Tuition fees up to date": 1,
+      "total_enrolled": 12,
+      "total_approved": 0,
+      "total_failed": 12,
+      "average_grade": 0.0,
+      "unpassed_courses": 12
+    },
+    {
+      "Gender": 0,
+      "Curricular units 1st sem (enrolled)": 6,
+      "Curricular units 1st sem (approved)": 3,
+      "Curricular units 1st sem (grade)": 6.166666665,
+      "Curricular units 2nd sem (enrolled)": 6,
+      "Curricular units 2nd sem (approved)": 1,
+      "Curricular units 2nd sem (grade)": 6.5,
+      "Debtor": 1,
+      "Tuition fees up to date": 1,
+      "total_enrolled": 12,
+      "total_approved": 4,
+      "total_failed": 8,
+      "average_grade": 6.333333333,
+      "unpassed_courses": 8
+    },
+    {
+      "Gender": 1,
+      "Curricular units 1st sem (enrolled)": 6,
+      "Curricular units 1st sem (approved)": 0,
+      "Curricular units 1st sem (grade)": 0.0,
+      "Curricular units 2nd sem (enrolled)": 6,
+      "Curricular units 2nd sem (approved)": 0,
+      "Curricular units 2nd sem (grade)": 0.0,
+      "Debtor": 1,
+      "Tuition fees up to date": 0,
+      "total_enrolled": 12,
+      "total_approved": 0,
+      "total_failed": 12,
+      "average_grade": 0.0,
+      "unpassed_courses": 12
+    }
+  ],
+  "model_input_format": {
+    "description": "Format required by the dropout prediction API",
+    "example": {
+      "data": [
+        {
+          "Gender": 0,
+          "Curricular units 1st sem (enrolled)": 6,
+          "Curricular units 1st sem (approved)": 5,
+          "Curricular units 1st sem (grade)": 6.2,
+          "Curricular units 2nd sem (enrolled)": 6,
+          "Curricular units 2nd sem (approved)": 5,
+          "Curricular units 2nd sem (grade)": 5.2,
+          "Debtor": 0,
+          "Tuition fees up to date": 1,
+          "total_enrolled": 12,
+          "total_approved": 10,
+          "total_failed": 2,
+          "average_grade": 5.7,
+          "unpassed_courses": 2
+        },
+        {
+          "Gender": 1,
+          "Curricular units 1st sem (enrolled)": 6,
+          "Curricular units 1st sem (approved)": 5,
+          "Curricular units 1st sem (grade)": 6.25,
+          "Curricular units 2nd sem (enrolled)": 6,
+          "Curricular units 2nd sem (approved)": 2,
+          "Curricular units 2nd sem (grade)": 6.75,
+          "Debtor": 1,
+          "Tuition fees up to date": 0,
+          "total_enrolled": 12,
+          "total_approved": 7,
+          "total_failed": 5,
+          "average_grade": 6.5,
+          "unpassed_courses": 5
+        }
+      ]
+    }
+  }
+}
